@@ -6,7 +6,7 @@ import AuthButtonClient from "./auth-button-client";
 // Then rendering the client component with the state from the server to allow clickable button
 // This is a wworkaround for getting the session available on first render on client side
 export default async function AuthButtonServer() {
-  const supabase = createServerComponentClient({cookies})
+  const supabase = createServerComponentClient<Database>({cookies})
   const { 
     data : { session },
   } = await supabase.auth.getSession();
